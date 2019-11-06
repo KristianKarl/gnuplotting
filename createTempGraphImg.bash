@@ -1,12 +1,12 @@
 #!/bin/bash
  
-mysql -u sensor --password=mkb6htWemjc2KrNaPrKmatqtNqzcPi --skip-column-names -e "SELECT UNIX_TIMESTAMP(CONVERT_TZ(timeStamp, '+00:00', @@global.time_zone)),data FROM sensor.event where ((timeStamp >=NOW() - INTERVAL 2 DAY) AND (name like '%Luminance%'));" | sed 's/\t/;/g;s/\n//g' > /home/krikar/scripts/data/luminance.csv
+mysql -u sensor --password=XXX --skip-column-names -e "SELECT UNIX_TIMESTAMP(CONVERT_TZ(timeStamp, '+00:00', @@global.time_zone)),data FROM sensor.event where ((timeStamp >=NOW() - INTERVAL 2 DAY) AND (name like '%Luminance%'));" | sed 's/\t/;/g;s/\n//g' > /home/krikar/scripts/data/luminance.csv
 
-mysql -u sensor --password=mkb6htWemjc2KrNaPrKmatqtNqzcPi --skip-column-names -e "SELECT UNIX_TIMESTAMP(CONVERT_TZ(timeStamp, '+00:00', @@global.time_zone)),data FROM sensor.event where ((timeStamp >=NOW() - INTERVAL 2 DAY) AND (name like '%uterummetTemperature%'));" | sed 's/\t/;/g;s/\n//g;s/ °C//' > /home/krikar/scripts/data/tempUterummet.csv
+mysql -u sensor --password=XXX --skip-column-names -e "SELECT UNIX_TIMESTAMP(CONVERT_TZ(timeStamp, '+00:00', @@global.time_zone)),data FROM sensor.event where ((timeStamp >=NOW() - INTERVAL 2 DAY) AND (name like '%uterummetTemperature%'));" | sed 's/\t/;/g;s/\n//g;s/ °C//' > /home/krikar/scripts/data/tempUterummet.csv
 
-mysql -u sensor --password=mkb6htWemjc2KrNaPrKmatqtNqzcPi --skip-column-names -e "SELECT UNIX_TIMESTAMP(CONVERT_TZ(timeStamp, '+00:00', @@global.time_zone)),data FROM sensor.event where ((timeStamp >=NOW() - INTERVAL 2 DAY) AND (name like '%outdoorTemperature%'));" | sed 's/\t/;/g;s/\n//g;s/ °C//' > /home/krikar/scripts/data/tempOutside.csv
+mysql -u sensor --password=XXX --skip-column-names -e "SELECT UNIX_TIMESTAMP(CONVERT_TZ(timeStamp, '+00:00', @@global.time_zone)),data FROM sensor.event where ((timeStamp >=NOW() - INTERVAL 2 DAY) AND (name like '%outdoorTemperature%'));" | sed 's/\t/;/g;s/\n//g;s/ °C//' > /home/krikar/scripts/data/tempOutside.csv
 
-mysql -u sensor --password=mkb6htWemjc2KrNaPrKmatqtNqzcPi --skip-column-names -e "SELECT UNIX_TIMESTAMP(CONVERT_TZ(timeStamp, '+00:00', @@global.time_zone)),data FROM sensor.event where ((timeStamp >=NOW() - INTERVAL 2 DAY) AND (name like '%vardagsrummetTemperature%'));" | sed 's/\t/;/g;s/\n//g;s/ °C//' > /home/krikar/scripts/data/tempInside.csv
+mysql -u sensor --password=XXX --skip-column-names -e "SELECT UNIX_TIMESTAMP(CONVERT_TZ(timeStamp, '+00:00', @@global.time_zone)),data FROM sensor.event where ((timeStamp >=NOW() - INTERVAL 2 DAY) AND (name like '%vardagsrummetTemperature%'));" | sed 's/\t/;/g;s/\n//g;s/ °C//' > /home/krikar/scripts/data/tempInside.csv
 
 
 # Define title of the plot and print last date of plotting
